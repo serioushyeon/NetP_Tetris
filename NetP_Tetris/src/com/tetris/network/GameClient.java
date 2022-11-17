@@ -334,6 +334,11 @@ public class GameClient implements Runnable {	// 쓰레드로 동작하는 클�
 				tetris.getBoard().setOpIndex4(data.getIndex());
 
 				break;
+			case 5:
+				tetris.getBoard().setOpBlockList5(blockList);
+				tetris.getBoard().setOpIndex5(data.getIndex());
+				break;
+
 			}
 		}
 	}
@@ -396,6 +401,12 @@ public class GameClient implements Runnable {	// 쓰레드로 동작하는 클�
 					tetris.getBoard().setOpIndex4(data.getIndex());
 
 					break;
+				case 5:
+					tetris.getBoard().setOpBlockList5(blockList);
+					tetris.getBoard().setOpIndex5(data.getIndex());
+					
+					break;
+					
 				}
 			}
 		}

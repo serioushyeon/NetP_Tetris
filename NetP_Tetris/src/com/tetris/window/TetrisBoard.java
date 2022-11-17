@@ -172,11 +172,13 @@ public class TetrisBoard extends JPanel implements Runnable, KeyListener, MouseL
 	private ArrayList<Block> opBlockList2;
 	private ArrayList<Block> opBlockList3;
 	private ArrayList<Block> opBlockList4;
+	private ArrayList<Block> opBlockList5;
 	
 	private int opIndex1 = -1;
 	private int opIndex2 = -1;
 	private int opIndex3 = -1;
 	private int opIndex4 = -1;
+	private int opIndex5 = -1;
 	// end of 추가된 부분
 
 	/////////////////////////////////////
@@ -342,6 +344,7 @@ public class TetrisBoard extends JPanel implements Runnable, KeyListener, MouseL
 		opBlockList2 = new ArrayList<Block>();
 		opBlockList3 = new ArrayList<Block>();
 		opBlockList4 = new ArrayList<Block>();
+		opBlockList5 = new ArrayList<Block>();
 
 		ItemList = new ArrayList<Integer>();
 		ItemList.add(Item_minus1);
@@ -532,17 +535,17 @@ public class TetrisBoard extends JPanel implements Runnable, KeyListener, MouseL
 		
 		// player4
 		g.setColor(Color.BLACK);
-		g.fillRect(400, 453, (maxX * BLOCK_SIZE) * 3 / 4 + 13, 3*BLOCK_SIZE-33);
+		g.fillRect(220, 73, (maxX * BLOCK_SIZE) * 3 / 4 + 13, 3*BLOCK_SIZE-33);
 		g.setColor(Color.WHITE);
 		if(opIndex4!=-1)
-			g.drawString(Integer.toString(opIndex4), 410, 475);
+			g.drawString(Integer.toString(opIndex4), 230, 95);
 		
 		// player5
 		g.setColor(Color.BLACK);
-		g.fillRect(220, 73, (maxX * BLOCK_SIZE) * 3 / 4 + 13, 3*BLOCK_SIZE-20);
+		g.fillRect(400, 453, (maxX * BLOCK_SIZE) * 3 / 4 + 13, 3*BLOCK_SIZE-33);
 		g.setColor(Color.WHITE);
-		//if(opIndex4!=-1)
-			//g.drawString(Integer.toString(opIndex4), 230, 95);
+		if(opIndex5!=-1)
+			g.drawString(Integer.toString(opIndex5), 410, 475);
 		//////////////////////////////////////////////
 		
 
@@ -676,6 +679,23 @@ public class TetrisBoard extends JPanel implements Runnable, KeyListener, MouseL
 		if (opBlockList4 != null) {
 			for (int i = 0; i < opBlockList4.size(); i++) {
 				Block block = opBlockList4.get(i);
+				x = block.getPosGridX();
+				y = block.getPosGridY();
+
+				block.setPosGridX(x + minX); // 이 부분이 생략되면 블럭들이 실제 있는 좌표에서 한 칸씩
+												// 좌측으로 밀리는 현상 발생
+				block.setPosGridY(y + minY);
+
+				block.drawColorBlock(g); // 블럭을 출력한다.
+
+				block.setPosGridX(x);
+				block.setPosGridY(y);
+
+			}
+		}
+		if (opBlockList5 != null) {
+			for (int i = 0; i < opBlockList5.size(); i++) {
+				Block block = opBlockList5.get(i);
 				x = block.getPosGridX();
 				y = block.getPosGridY();
 
@@ -1311,6 +1331,8 @@ public class TetrisBoard extends JPanel implements Runnable, KeyListener, MouseL
 			ItemActivate(4);
 		} else if (e.getKeyCode() == KeyEvent.VK_5) {
 			ItemActivate(5);
+		} else if (e.getKeyCode() == KeyEvent.VK_6) {
+			ItemActivate(6);
 		}
 
 		// 이동 데이터 처리 후 고스트 모드와 새로운 출력을 진행한다.
@@ -1434,6 +1456,9 @@ public class TetrisBoard extends JPanel implements Runnable, KeyListener, MouseL
 	public void setOpBlockList4(ArrayList<Block> opBlockList) {
 		this.opBlockList4 = opBlockList;
 	}
+	public void setOpBlockList5(ArrayList<Block> opBlockList) {
+		this.opBlockList5 = opBlockList;
+	}
 
 	public void setOpIndex1(int index){
 		this.opIndex1 = index;
@@ -1446,6 +1471,9 @@ public class TetrisBoard extends JPanel implements Runnable, KeyListener, MouseL
 	}
 	public void setOpIndex4(int index){
 		this.opIndex4 = index;
+	}
+	public void setOpIndex5(int index){
+		this.opIndex5 = index;
 	}
 	// end of 추가된 부분
 

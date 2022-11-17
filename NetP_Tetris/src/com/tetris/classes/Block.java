@@ -78,6 +78,14 @@ public class Block implements Serializable {
 			g.fillRect((fixGridX + posGridX) * op_size + board2x,
 					(fixGridY + posGridY) * op_size + board2y+360, op_width, op_height);
 			break;
+		case 4:
+			g.fillRect((fixGridX + posGridX) * op_size + board2x+190,
+					(fixGridY + posGridY) * op_size + board2y, op_width, op_height);
+			break;
+		case 5:
+			g.fillRect((fixGridX + posGridX) * op_size + board2x+370,
+					(fixGridY + posGridY) * op_size + board2y+360, op_width, op_height);
+			break;
 		}
 		// 블럭의 2차 테두리 컬러를 설정해준다. 제일 외곽을 뜻한다.
 		g.setColor(Color.BLACK);
@@ -98,6 +106,14 @@ public class Block implements Serializable {
 			break;
 		case 3:
 			g.drawRect((fixGridX + posGridX) * op_size + board2x,
+					(fixGridY + posGridY) * op_size + board2y+360, op_width, op_height);
+			break;
+		case 4:
+			g.drawRect((fixGridX + posGridX) * op_size + board2x+190,
+					(fixGridY + posGridY) * op_size + board2y, op_width, op_height);
+			break;
+		case 5:
+			g.drawRect((fixGridX + posGridX) * op_size + board2x+370,
 					(fixGridY + posGridY) * op_size + board2y+360, op_width, op_height);
 			break;
 		}
@@ -128,6 +144,18 @@ public class Block implements Serializable {
 					(fixGridX + posGridX) * op_size + op_width + board2x,
 					(fixGridY + posGridY) * op_size + op_height + board2y+360);
 			break;
+		case 4:
+			g.drawLine((fixGridX + posGridX) * op_size + board2x+190,
+					(fixGridY + posGridY) * op_size + board2y,
+					(fixGridX + posGridX) * op_size + op_width + board2x+190,
+					(fixGridY + posGridY) * op_size + op_height + board2y);
+			break;
+		case 5:
+			g.drawLine((fixGridX + posGridX) * op_size + board2x+370,
+					(fixGridY + posGridY) * op_size + board2y+360,
+					(fixGridX + posGridX) * op_size + op_width + board2x+380,
+					(fixGridY + posGridY) * op_size + op_height + board2y+360);
+			break;
 		}
 		switch (index) {
 		case 0:
@@ -153,6 +181,18 @@ public class Block implements Serializable {
 			g.drawLine((fixGridX + posGridX) * op_size + board2x,
 					(fixGridY + posGridY) * op_size + board2y+360,
 					(fixGridX + posGridX) * op_size + op_width + board2x,
+					(fixGridY + posGridY) * op_size + op_height + board2y+360);
+			break;
+		case 4:
+			g.drawLine((fixGridX + posGridX) * op_size + board2x+190,
+					(fixGridY + posGridY) * op_size + board2y,
+					(fixGridX + posGridX) * op_size + op_width + board2x+190,
+					(fixGridY + posGridY) * op_size + op_height + board2y);
+			break;
+		case 5:
+			g.drawLine((fixGridX + posGridX) * op_size + board2x+370,
+					(fixGridY + posGridY) * op_size + board2y+360,
+					(fixGridX + posGridX) * op_size + op_width + board2x+380,
 					(fixGridY + posGridY) * op_size + op_height + board2y+360);
 			break;
 
@@ -182,6 +222,14 @@ public class Block implements Serializable {
 			g.fillRect((fixGridX + posGridX) * op_size + gap + board2x,
 					(fixGridY + posGridY) * op_size + gap + board2y+360, op_width - gap * 2, op_height - gap * 2);
 			break;
+		case 4:
+			g.fillRect((fixGridX + posGridX) * op_size + gap + board2x+190,
+					(fixGridY + posGridY) * op_size + gap + board2y, op_width - gap * 2, op_height - gap * 2);
+			break;
+		case 5:
+			g.fillRect((fixGridX + posGridX) * op_size + gap + board2x+370,
+					(fixGridY + posGridY) * op_size + gap + board2y+360, op_width - gap * 2, op_height - gap * 2);
+			break;
 
 		}
 
@@ -202,6 +250,14 @@ public class Block implements Serializable {
 			break;
 		case 3:
 			g.drawRect((fixGridX + posGridX) * op_size + gap + board2x, 
+					(fixGridY + posGridY) * op_size + gap + board2y+360, op_width - gap * 2, op_height - gap * 2);
+			break;
+		case 4:
+			g.drawRect((fixGridX + posGridX) * op_size + gap + board2x+190,
+					(fixGridY + posGridY) * op_size + gap + board2y, op_width - gap * 2, op_height - gap * 2);
+			break;
+		case 5:
+			g.drawRect((fixGridX + posGridX) * op_size + gap + board2x+370,
 					(fixGridY + posGridY) * op_size + gap + board2y+360, op_width - gap * 2, op_height - gap * 2);
 			break;
 
@@ -225,6 +281,14 @@ public class Block implements Serializable {
 			break;
 		case 3:
 			g.fillRect((fixGridX + posGridX) * op_size + gap + board2x,
+					(fixGridY + posGridY) * op_size + gap + board2y+360, op_width - gap * 2, op_height - gap * 2);
+			break;
+		case 4:
+			g.fillRect((fixGridX + posGridX) * op_size + gap + board2x+190,
+					(fixGridY + posGridY) * op_size + gap + board2y, op_width - gap * 2, op_height - gap * 2);
+			break;
+		case 5:
+			g.fillRect((fixGridX + posGridX) * op_size + gap + board2x+370,
 					(fixGridY + posGridY) * op_size + gap + board2y+360, op_width - gap * 2, op_height - gap * 2);
 			break;
 		}
